@@ -1,16 +1,62 @@
-# React + Vite
+# Habit Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal daily habit tracking app built with React. Track your habits, monitor streaks, and stay consistent — data persists locally so nothing is lost on refresh.
 
-Currently, two official plugins are available:
+**Live → [habit-tracker-alpha-one-96.vercel.app](https://habit-tracker-alpha-one-96.vercel.app)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Add and delete habits
+- Mark habits done / undone each day
+- Streak tracking — consecutive days completed
+- Stats page — completion rate, progress bar, per-habit status
+- Light / dark mode
+- localStorage persistence — no backend, no login
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Layer | Tech |
+|---|---|
+| UI | React 18, Tailwind CSS |
+| Routing | React Router v6 |
+| State | Context API + useReducer |
+| Build | Vite |
+| Deploy | Vercel |
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── AddHabitForm.jsx
+│   ├── HabitCard.jsx
+│   └── Navbar.jsx
+├── context/
+│   └── HabitContext.jsx
+├── hooks/
+│   ├── useHabits.js        # useReducer + localStorage sync
+│   └── useStreak.js        # consecutive day streak logic
+├── pages/
+│   ├── Home.jsx
+│   └── Stats.jsx
+└── App.jsx
+```
+
+## Getting Started
+
+```bash
+git clone https://github.com/kritikakapoor23/habit-tracker.git
+cd habit-tracker
+npm install
+npm run dev
+```
+
+## Architecture Notes
+
+**State management** — habits live in a `useReducer` inside the `useHabits` custom hook, exposed via Context. No prop drilling; any component can dispatch actions or read state directly.
+
+**Persistence** — `useEffect` syncs state to localStorage on every change. Initial state is hydrated from localStorage via the `useReducer` initializer, so data survives page refreshes.
+
+**Streak logic** — `useStreak` receives a `completedDates` array and walks backwards from today, counting consecutive days. Pure function, no side effects, safe to call on every render.
