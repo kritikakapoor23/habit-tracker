@@ -60,3 +60,5 @@ npm run dev
 **Persistence** — `useEffect` syncs state to localStorage on every change. Initial state is hydrated from localStorage via the `useReducer` initializer, so data survives page refreshes.
 
 **Streak logic** — `useStreak` receives a `completedDates` array and walks backwards from today, counting consecutive days. Pure function, no side effects, safe to call on every render.
+<img width="1884" height="1036" alt="image" src="https://github.com/user-attachments/assets/e4617a20-d37c-454e-913d-bf818962d57e" />
+<img width="1879" height="1012" alt="image" src="https://github.com/user-attachments/assets/3866efc5-9bed-4ad9-8a65-1d84cf6e1601" />
