@@ -12,7 +12,7 @@ const Home = () => {
   const [formOpen, setFormOpen] = useState(false)
 
   return (
-    <div className="p-8 bg-gray-50 dark:bg-gray-950 min-h-screen transition-colors">
+    <div className="p-4 md:p-8 bg-gray-50 dark:bg-gray-950 min-h-screen transition-colors">
       <div className="flex items-start justify-between mb-6">
         <div>
           <h1 className="text-lg font-medium text-gray-900 dark:text-gray-100">Today's habits</h1>
@@ -24,7 +24,7 @@ const Home = () => {
       {habits.length === 0 ? (
         <p className="text-sm text-gray-400 dark:text-gray-600 mt-10">No habits yet. Add one to get started.</p>
       ) : (
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(190px,1fr))] gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
           {habits.map(habit => (
             <HabitCard key={habit.id} habit={habit} />
           ))}

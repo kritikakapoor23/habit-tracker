@@ -9,13 +9,13 @@ const Stats = () => {
   const rate = total === 0 ? 0 : Math.round((done / total) * 100)
 
   return (
-    <div className="p-8 bg-gray-50 dark:bg-gray-950 min-h-screen transition-colors">
+    <div className="p-4 md:p-8 bg-gray-50 dark:bg-gray-950 min-h-screen transition-colors">
       <div className="mb-6">
         <h1 className="text-lg font-medium text-gray-900 dark:text-gray-100">Your stats</h1>
         <p className="text-sm text-gray-400 dark:text-gray-500 mt-0.5">Today's overview</p>
       </div>
 
-      <div className="grid grid-cols-3 gap-3 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
         <div className="bg-gray-100 dark:bg-gray-900 rounded-xl p-4">
           <p className="text-xs text-gray-500 dark:text-gray-400 mb-1.5">Total habits</p>
           <p className="text-2xl font-medium text-gray-800 dark:text-gray-100">{total}</p>
@@ -54,10 +54,7 @@ const Stats = () => {
       </div>
 
       <div className="w-full h-1 bg-gray-200 dark:bg-gray-800 rounded-full mb-2">
-        <div
-          className="h-1 bg-green-500 rounded-full transition-all"
-          style={{ width: `${rate}%` }}
-        />
+        <div className="h-1 bg-green-500 rounded-full transition-all" style={{ width: `${rate}%` }} />
       </div>
       <div className="flex justify-between text-xs text-gray-400 dark:text-gray-600">
         <span>{done} of {total} done today</span>

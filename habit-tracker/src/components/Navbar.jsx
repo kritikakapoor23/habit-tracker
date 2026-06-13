@@ -3,7 +3,7 @@ import { CheckSquare, Sun, Moon } from 'lucide-react'
 
 const Navbar = ({ dark, onToggle }) => {
   return (
-    <nav className="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 px-8 h-13 flex items-center justify-between transition-colors">
+    <nav className="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 px-4 md:px-8 py-3 md:py-0 md:h-13 flex flex-col md:flex-row items-center gap-3 md:gap-0 justify-between transition-colors">
       <div className="flex items-center gap-2 text-sm font-medium text-gray-800 dark:text-gray-100">
         <CheckSquare size={18} className="text-green-500" />
         HabitFlow
